@@ -13,10 +13,10 @@
 - (instancetype)initWithFrame:(CGRect)frame Config:(void (^)(LTView *view))block;
 
 //1、通过属性方式
-@property (nonatomic, assign) LTView *(^lt_viewWidth)(CGFloat width);
+@property (nonatomic, copy) LTView *(^lt_bgColor)(UIColor *);
 
 //2、通过函数声明方式
--(LTView *(^)(UIColor *))lt_bgColor;
+-(LTView *(^)(CGFloat width))lt_viewWidth;
 -(LTView *(^)(CGFloat height))lt_viewHeigth;
 @end
 
