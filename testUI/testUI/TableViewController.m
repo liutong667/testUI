@@ -8,6 +8,7 @@
 
 #import "TableViewController.h"
 #import "ContentModeController.h"
+#import "ChainCodeController.h"
 
 @interface TableViewController ()
 @property (nonatomic, strong) NSArray *dataArray;
@@ -23,8 +24,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.dataArray = @[@"test contentMode"];
-    self.vcArray = @[NSStringFromClass([ContentModeController class])];
+    self.dataArray = @[@"test contentMode",
+                       @"链式编程"];
+    self.vcArray = @[NSStringFromClass([ContentModeController class]),
+                    NSStringFromClass([ChainCodeController class]),
+                                       ];
 }
 - (NSArray *)dataArray {
     if (!_dataArray) {
