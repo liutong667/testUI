@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A83383E41FCF016E00E1FD83 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = A83383E31FCF016E00E1FD83 /* UIColor+Hex.m */; };
+		A83383E71FCF034500E1FD83 /* StyleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A83383E61FCF034500E1FD83 /* StyleTableViewController.m */; };
 		A85FC2231FCBE792009A107D /* ChainCodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = A85FC2221FCBE792009A107D /* ChainCodeController.m */; };
 		A8B9CA5F1FC7DCF800F0B2DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B9CA5E1FC7DCF800F0B2DE /* AppDelegate.m */; };
 		A8B9CA651FC7DCF800F0B2DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B9CA631FC7DCF800F0B2DE /* Main.storyboard */; };
@@ -18,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A83383E21FCF016E00E1FD83 /* UIColor+Hex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		A83383E31FCF016E00E1FD83 /* UIColor+Hex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		A83383E51FCF034500E1FD83 /* StyleTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StyleTableViewController.h; sourceTree = "<group>"; };
+		A83383E61FCF034500E1FD83 /* StyleTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StyleTableViewController.m; sourceTree = "<group>"; };
 		A85FC2211FCBE792009A107D /* ChainCodeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChainCodeController.h; sourceTree = "<group>"; };
 		A85FC2221FCBE792009A107D /* ChainCodeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChainCodeController.m; sourceTree = "<group>"; };
 		A8B9CA5A1FC7DCF800F0B2DE /* testUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +80,8 @@
 				A8B9CA681FC7DCF800F0B2DE /* LaunchScreen.storyboard */,
 				A8B9CA6B1FC7DCF800F0B2DE /* Info.plist */,
 				A8B9CA6C1FC7DCF800F0B2DE /* main.m */,
+				A83383E21FCF016E00E1FD83 /* UIColor+Hex.h */,
+				A83383E31FCF016E00E1FD83 /* UIColor+Hex.m */,
 			);
 			path = testUI;
 			sourceTree = "<group>";
@@ -85,6 +93,8 @@
 				A8B9CA781FC7DF1400F0B2DE /* ContentModeController.m */,
 				A85FC2211FCBE792009A107D /* ChainCodeController.h */,
 				A85FC2221FCBE792009A107D /* ChainCodeController.m */,
+				A83383E51FCF034500E1FD83 /* StyleTableViewController.h */,
+				A83383E61FCF034500E1FD83 /* StyleTableViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -164,7 +174,9 @@
 				A8B9CA5F1FC7DCF800F0B2DE /* AppDelegate.m in Sources */,
 				A85FC2231FCBE792009A107D /* ChainCodeController.m in Sources */,
 				A8B9CA791FC7DF1400F0B2DE /* ContentModeController.m in Sources */,
+				A83383E41FCF016E00E1FD83 /* UIColor+Hex.m in Sources */,
 				A8B9CA751FC7DD6000F0B2DE /* TableViewController.m in Sources */,
+				A83383E71FCF034500E1FD83 /* StyleTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

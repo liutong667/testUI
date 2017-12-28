@@ -1,21 +1,20 @@
 //
-//  TableViewController.m
+//  StyleTableViewController.m
 //  testUI
 //
-//  Created by liutong on 2017/11/24.
+//  Created by 刘通 on 2017/11/29.
 //  Copyright © 2017年 liutong. All rights reserved.
 //
 
-#import "TableViewController.h"
-#import "ContentModeController.h"
-#import "ChainCodeController.h"
 #import "StyleTableViewController.h"
-@interface TableViewController ()
-@property (nonatomic, strong) NSArray *dataArray;
-@property (nonatomic, strong) NSArray *vcArray;
+#import "UIColor+Hex.h"
+
+@interface StyleTableViewController ()
+@property(nonatomic, strong) NSMutableArray *dataArray;
 @end
 
-@implementation TableViewController
+@implementation StyleTableViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -24,64 +23,66 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.dataArray = @[@"test contentMode",
-                       @"链式编程",
-                       @"group",
-                       @"plain",];
-    self.vcArray = @[NSStringFromClass([ContentModeController class]),
-                    NSStringFromClass([ChainCodeController class]),
-                     NSStringFromClass([StyleTableViewController class]),
-                     NSStringFromClass([StyleTableViewController class]),
-                                       ];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    if (self.tableView.style == UITableViewStyleGrouped) {
+        self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 100)];
+        self.tableView.tableHeaderView.backgroundColor = [UIColor black_8];
+    }
+    [self loadData];
 }
-- (NSArray *)dataArray {
+
+- (void)loadData{
+    for (NSInteger i = 0; i<3; i++) {
+        NSMutableArray *sectionArray = [NSMutableArray array];
+        for (NSInteger j = 0; j<10; j++) {
+            [sectionArray addObject:[NSString stringWithFormat:@"section %zd-----row %zd",i,j]];
+        }
+        [self.dataArray addObject:sectionArray];
+    }
+}
+- (NSMutableArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = [NSArray array];
+        _dataArray = [NSMutableArray array];
     }
     return _dataArray;
 }
--(NSArray *)vcArray {
-    if (!_vcArray) {
-        _vcArray = [NSArray array];
-    }
-    return _vcArray;
-}
+
 #pragma mark - Table view data source
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.dataArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
-    return self.dataArray.count;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIndentify = @"testCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentify];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentify];
-    }
-    cell.textLabel.text = self.dataArray[indexPath.row];
-    return cell;
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Class vcClass = NSClassFromString(self.vcArray[indexPath.row]);
-    UIViewController *vc = [[vcClass alloc] init];
-    if ([self.dataArray[indexPath.row] isEqualToString:@"group"]) {
-        vc = [[StyleTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    }
-    [self.navigationController pushViewController:vc animated:YES];
+    return [self.dataArray[section] count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    cell.textLabel.text = self.dataArray[indexPath.section][indexPath.row];
     return cell;
 }
-*/
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 50; //使用 CGFLOAT_MIN或者0.01 ，
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 64;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    view.backgroundColor =[UIColor blue_1];
+    return view;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    view.backgroundColor =[UIColor red_2];
+    return view;
+}
+
 
 /*
 // Override to support conditional editing of the table view.
